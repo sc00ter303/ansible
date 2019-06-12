@@ -1,0 +1,12 @@
+---
+- name: Core Ping
+  hosts: netswitches
+  gather_facts: false
+
+  tasks:
+    - name: Core Ping
+      raw: "ping 10.100.0.254 re 10"
+
+      register: print_output
+
+    - debug: var=print_output.stdout_lines
