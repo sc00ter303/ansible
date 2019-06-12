@@ -1,0 +1,23 @@
+---
+- name: Palo Alto PANOS Verify System.
+  hosts: paloalto
+  connection: local
+
+  tasks:
+  - name: show interface all
+    panos_op:
+      ip_address: '{{ ip_address }}'
+      username: '{{ username }}'
+      password: '{{ password }}'
+      cmd: 'show interface all'
+
+  - name: show system info
+    panos_op:
+      ip_address: '{{ ip_address }}'
+      username: '{{ username }}'
+      password: '{{ password }}'
+      cmd: 'show system info'
+
+      register: print_output
+
+ - debug: var=print_output
