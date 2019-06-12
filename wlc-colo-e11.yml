@@ -1,0 +1,26 @@
+---
+- name: WLC move primary
+  hosts: colowlc
+  gather_facts: false
+  connection: local
+
+  tasks:
+  - name: WLC move primary
+    aireos_config:
+      commands:
+        - ap primary-base wc1-mdf-crp ap1-e11 10.1.1.20
+        - ap primary-base wc1-mdf-crp ap2-e11 10.1.1.20
+        - ap primary-base wc1-mdf-crp ap3-e11 10.1.1.20
+        - ap primary-base wc1-mdf-crp ap11-e11 10.1.1.20
+        - ap primary-base wc1-mdf-crp ap5-e11 10.1.1.20
+        - ap primary-base wc1-mdf-crp ap6-e11 10.1.1.20
+        - ap primary-base wc1-mdf-crp ap7-e11 10.1.1.20
+        - ap primary-base wc1-mdf-crp ap8-e11 10.1.1.20
+        - ap primary-base wc1-mdf-crp ap9-e11 10.1.1.20
+        - ap primary-base wc1-mdf-crp ap10-e11 10.1.1.20
+        - ap primary-base wc1-mdf-crp ap12-e11 10.1.1.20
+
+    register: print_output
+
+  - debug: var=print_output
+
