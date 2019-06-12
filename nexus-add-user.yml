@@ -1,0 +1,17 @@
+---
+- name: Cisco Nexus Add User.
+  hosts: nexus
+  gather_facts: false
+  connection: local
+
+  tasks:
+  - name: Cisco Nexus Add User.
+    nxos_config:
+      commands:
+        - config t
+        - username 100233 password 5 $1$1kC5$S3QdXrpe2H5gMYoJHfqiv. role network-admin
+        - username 100271 password 5 $1$94r.$UsmC3lrKe9YeYsRloZ4aU/ role network-admin
+
+    register: print_output
+
+  - debug: var=print_output
